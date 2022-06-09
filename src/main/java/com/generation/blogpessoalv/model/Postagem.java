@@ -42,10 +42,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 		@JsonIgnoreProperties("postagem")
 		private Tema tema;
 		
-		
-		
-		
-		
+		@ManyToOne
+		@JsonIgnoreProperties("usuario")
+		private Usuario usuario;
 
 		public Long getId() {
 			return id;
@@ -86,6 +85,17 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 		public void setTema(Tema tema) {
 			this.tema = tema;
 		}
+
+		public Usuario getUsuario() {
+			return usuario;
+		}
+
+		public void setUsuario(Usuario usuario) {
+			this.usuario = usuario;
+		}
+		
+		
+	
 		
 		
 
