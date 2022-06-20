@@ -12,8 +12,11 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+
+@SuppressWarnings("deprecation")
 @EnableWebSecurity
-public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
+public class BasicSecurityConfig extends WebSecurityConfigurerAdapter 
+{
 
 	
 
@@ -35,16 +38,19 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	}
 
-	
+
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 
+	
+	
 	 @Override
 	protected void configure(HttpSecurity http) throws Exception {
 		
 		
+
 		http.authorizeRequests()
 			.antMatchers("/usuarios/logar").permitAll()
 			.antMatchers("/usuarios/cadastrar").permitAll()
