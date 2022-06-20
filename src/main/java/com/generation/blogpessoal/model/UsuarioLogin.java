@@ -1,8 +1,7 @@
 package com.generation.blogpessoal.model;
 
-public class UsuarioLogin {
-
-	//  Ela é reponsável como suporte para fazer login no sistema.
+public class UsuarioLogin 
+{
 
 	private Long id;
 
@@ -16,52 +15,87 @@ public class UsuarioLogin {
 
 	private String token;
 
-	public Long getId() {
-		return id;
-		
-	}
-
-	public void setId(Long id) {
+	public UsuarioLogin(Long id, String nome, String usuario, String senha, String foto, String token)
+	{
 		this.id = id;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public String getUsuario() {
-		return usuario;
-	}
-
-	public String getToken() {
-		return token;
-	}
-
-	public void setToken(String token) {
+		this.usuario = usuario;
+		this.senha = senha;
+		this.foto = foto;
 		this.token = token;
 	}
 
-	public void setUsuario(String usuario) {
+	// Segundo método Construtor
+
+	public UsuarioLogin() {	}
+	
+	// Terceiro método Construtor
+	
+	public UsuarioLogin(String usuario, String senha) 
+	{
+		this.usuario = usuario;
+		this.senha = senha;
+	}
+	
+	public Long getId()
+	{
+		return id;
+	}
+
+	public void setId(Long id)
+	{
+		this.id = id;
+	}
+
+	public String getNome()
+	{
+		return nome;
+	}
+
+	public void setNome(String nome)
+	{
+		this.nome = nome;
+	}
+
+	public String getUsuario()
+	{
+		return usuario;
+	}
+
+	public void setUsuario(String usuario)
+	{
 		this.usuario = usuario;
 	}
 
-	public String getSenha() {
+	public String getSenha()
+	{
 		return senha;
 	}
 
-	public void setSenha(String senha) {
+	public void setSenha(String senha)
+	{
 		this.senha = senha;
 	}
 
-	public String getFoto() {
+	public String getFoto()
+	{
 		return foto;
 	}
 
-	public void setFoto(String foto) {
+	public void setFoto(String foto)
+	{
 		this.foto = foto;
 	}
+
+	public String getToken()
+	{
+		return token;
+	}
+
+	public void setToken(String token)
+	{
+		this.token = token;
+	}
+	
+	
 }

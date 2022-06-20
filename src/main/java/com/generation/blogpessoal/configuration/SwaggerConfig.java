@@ -24,7 +24,7 @@ package com.generation.blogpessoal.configuration;
 							.description("Projeto Blog Pessoal - Generation Brasil - Aluna Vitória Rodrigues").version("v0.0.1")
 							.license(new License().name("Generation Brasil").url("https://brazil.generation.org/"))
 							.contact(new Contact().name("Vitória Rodrigues").url("https://github.com/vitoriarodris26")
-									.email("vitoria.rodriguessilva@outlook.com.br")))
+									.email("vitoriafly1@gmail.com")))
 					.externalDocs(new ExternalDocumentation().description("Github")
 							.url("https://github.com/vitoriarodris26/BlogPessoal"));
 
