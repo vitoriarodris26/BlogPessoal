@@ -20,10 +20,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 @Entity
 @Table(name = "tb_usuarios")
-public class Usuario
-{
+public class Usuario {
 
-	//
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -31,7 +29,7 @@ public class Usuario
 	@NotNull(message = "O atributo Nome é Obrigatório!")
 	private String nome;
 
-	@Schema(example = "email@email.com.br")
+	@Schema(example= "email@email.com.br")
 	@NotNull(message = "O atributo Usuário é Obrigatório!")
 	@Email(message = "O atributo Usuário deve ser um email válido!")
 	private String usuario;
@@ -45,80 +43,72 @@ public class Usuario
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
 	private List<Postagem> postagem;
-
+	
+	
+	
 	// Primeiro método Construtor
 
-	public Usuario(Long id, String nome, String usuario, String senha, String foto)
-	{
-		this.id = id;
-		this.nome = nome;
-		this.usuario = usuario;
-		this.senha = senha;
-		this.foto = foto;
+	public Usuario(Long id, String nome, String usuario, String senha, String foto) {
+			this.id = id;
+			this.nome = nome;
+			this.usuario = usuario;
+			this.senha = senha;
+			this.foto = foto;
 	}
 
 	// Segundo método Construtor
 
 	public Usuario() {	}
 
-	public Long getId()
-	{
+	
+	
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Long id)
-	{
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public String getNome()
-	{
+	public String getNome() {
 		return nome;
 	}
 
-	public void setNome(String nome)
-	{
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
-	public String getUsuario()
-	{
+	public String getUsuario() {
 		return usuario;
 	}
 
-	public void setUsuario(String usuario)
-	{
+	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
 
-	public String getSenha()
-	{
+	public String getSenha() {
 		return senha;
 	}
 
-	public void setSenha(String senha)
-	{
+	public void setSenha(String senha) {
 		this.senha = senha;
 	}
 
-	public String getFoto()
-	{
+	public String getFoto() {
 		return foto;
 	}
 
-	public void setFoto(String foto)
-	{
+	public void setFoto(String foto) {
 		this.foto = foto;
 	}
 
-	public List<Postagem> getPostagem()
-	{
+	public List<Postagem> getPostagem() {
 		return postagem;
 	}
 
-	public void setPostagem(List<Postagem> postagem)
-	{
+	public void setPostagem(List<Postagem> postagem) {
 		this.postagem = postagem;
 	}
+
 
 }

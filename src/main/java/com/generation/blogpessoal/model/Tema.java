@@ -9,71 +9,48 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-
 @Entity
-@Table (name= "tb_temas")
-
+@Table(name = "tb_temas")
 public class Tema {
-	@Id
+
+	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
-	private Long id;
+	private Long id; 
 	
-	
-	@NotNull(message = "A descrição é Obrigatória!")
-	@Size(min = 10, max = 1000, message = "O atributo texto deve conter no mínimo 10 e no máximo 500 caracteres")
+	@NotBlank(message = "O atributo Título é obrigatório e não pode utilizar apenas espaços em branco!")
 	private String descricao;
-	
-	
 	
 	@OneToMany(mappedBy = "tema", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("tema")
 	private List<Postagem> postagem;
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public String getDescricao() {
 		return descricao;
 	}
+
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+
 	public List<Postagem> getPostagem() {
 		return postagem;
 	}
+
 	public void setPostagem(List<Postagem> postagem) {
 		this.postagem = postagem;
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	} 
 	
 	
 }
