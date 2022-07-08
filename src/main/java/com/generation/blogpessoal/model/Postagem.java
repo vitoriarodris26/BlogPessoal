@@ -12,44 +12,37 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.hibernate.annotations.UpdateTimestamp;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@Entity //indica que é um modelo
-@Table(name = "tb_postagens") //equivalente ao create table do MySQL
-public class Postagem {
+import org.hibernate.annotations.UpdateTimestamp;
 
-	@Id //chave primaria
-	@GeneratedValue(strategy = GenerationType.IDENTITY) // AUTO_INCREMENT -> quem cria o valor da chave é o banco de dados
-	private Long id; 
+@Entity
+@Table(name = "tb_postagens")
+public class Postagem {
 	
-	@NotBlank(message = "O atributo Título é obrigatório e não pode utilizar apenas espaços em branco!") //mensagem para o usuário, notblank funciona apenas para texto/String
-	@Size(min = 5, max =100, message = "O atributo Título deve conter no minino 05 e no máximo 100 caracteres!")  //tamanho minimo e máximo da String
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@NotBlank(message = "O atributo titulo é obrigatório e não pode utilizar espaços em branco!")
+	@Size(min = 5, max = 100, message = "O atributo titulo deve conter no minímo 5 e no máximo 100 caracteres!")
 	private String titulo;
 	
-	@NotNull(message = "O atributo Texto é obrigatório!") //mensagem para o usuário, notnull funciona apenas para texto/String e aceita espaço em branco
-	@Size(min = 10, max =1000, message = "O atributo Texto deve conter no minino 10 e no máximo 1000 caracteres!")  //tamanho minimo e máximo da String
+	@NotNull(message = "O atributo texto é obrigatório e não pode utilizar espaços em branco!")
+	@Size(min = 10, max = 1000, message = "O atributo texto deve conter no minímo 10 e no máximo 1000 caracteres!")
 	private String texto;
 	
-	@UpdateTimestamp //pega a data direto do computador, muda a data toda vez que for criada ou atualizada a postagens, se quiser que seja só na criação utilizar o CreateTimestamp
+	@UpdateTimestamp
 	private LocalDateTime data;
 	
 	@ManyToOne
 	@JsonIgnoreProperties("postagem")
-	private Tema tema; //Esse objeto cria a relação com a classe/tabela(chave estrangeira) Tema
-
+	private Tema tema;
+	
 	@ManyToOne
 	@JsonIgnoreProperties("postagem")
 	private Usuario usuario;
 	
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
 
 	public Long getId() {
 		return id;
@@ -84,12 +77,19 @@ public class Postagem {
 	}
 	
 	public Tema getTema() {
-		return tema;
+		return this.tema;
 	}
 
 	public void setTema(Tema tema) {
 		this.tema = tema;
 	}
-		
+	
+	public Usuario getUsuario() {
+		return this.usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 
 }
