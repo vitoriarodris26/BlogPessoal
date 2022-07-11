@@ -26,12 +26,12 @@ public class SwaggerConfig {
 					.name("Generation Brasil")
 					.url("https://brazil.generation.org/"))
 				.contact(new Contact()
-					.name("Vitória Rodrigues")
+					.name("Vitoria Rodrigues da Silva")
 					.url("https://github.com/vitoriarodris26")
 					.email("vitoriafly1@gmail.com")))
 				.externalDocs(new ExternalDocumentation()
 					.description("Github")
-					.url("https://github.com/vitoriarodris26/BlogPessoal"));
+					.url("https://github.com/vitoriarodris26"));
 	}
 
 	@Bean
@@ -59,9 +59,5 @@ public class SwaggerConfig {
 		return new ApiResponse().description(message);
 
 	}
-	
-
-	
-	
 	
 }
